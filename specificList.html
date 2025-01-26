@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+   <head>
+        <!--Page Title-->
+        <title>List</title>
+
+        <!-- Add MDL -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+        <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+
+        <!-- Link to CSS-->
+        <link rel="stylesheet" type="text/css" href="specificList.css">
+        <link rel="stylesheet" type="text/css" href="shared.css">
+
+        <!-- Page Adjust's depending on Screen Size-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+   <body>
+        <!-- Header of the Page. Always shows a header, even in smaller screens. -->
+        <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+            <header class="mdl-layout__header" id = "boardHeader">
+                <div class="mdl-layout__header-row" style = "padding: 0 16px 0 16px;font-size: 18px;font-weight: bold;">
+                    <!-- Title -->
+                    <p><p id = "boardName" class="weeklyToDoList" onclick="this.contentEditable=true;this.className='inEdit';" onblur="this.contentEditable=false;this.className='';" contenteditable="false" style="font-size: 18px;font-weight: bold;margin-bottom: 0px;" onKeyPress="listNameEntered(event, this)"></p><p id = "boardPage" style="margin-bottom: 0px; font-weight: bold; font-size: 18px;"></p></p>
+                    <!-- Add spacer, to align navigation to the right -->
+                    <div class="mdl-layout-spacer"></div>
+                    <!--Navigation Dropdown ListButton-->
+                    <div class="dropdown">
+                        <button onclick="menuToggle()" class="" id = "menuButton">Menu</button>
+                        <div id="menuDropdown" class="menu-dropdown-content" style = "transform: translate(-90px, 0px);">
+                          <a id = "board" href = "weeklyToDoList.html" style = "font-size: 14px;">Board</a>
+                          <a id = "weeklyPlanner" href = "weeklyPlanner.html" style = "font-size: 14px;">Weekly Planner</a>
+                          <a id = "overdueWork" style = "font-size: 14px;" onclick = "overduePage()">Overdue Work</a>
+                          <a id = "todaysWork" style = "font-size: 14px;" onclick = "todayPage()">Today's Work</a>
+                          <a id = "reset" style = "font-size: 14px;">Reset</a>
+
+                        </div>
+                      </div>
+                </div>
+            </header>
+            <!-- Body of the To Do List-->
+            <main class="mdl-layout__content">
+                <div class="page-content">
+                    <div class="mdl-grid">
+                        <div class="mdl-cell mdl-cell--3-col"></div>
+                        <div class="mdl-cell mdl-cell--6-col">
+                            <!--Overdue Items-->
+                            <div class = "w3-panel mdl-shadow--2dp mdl-grid mdl-cell--12-col" style = "background-color: #383838; border-radius: 4px; margin-top: 0px; width: auto; height: auto; position: relative;" id = "sectionItems"></div>
+                        </div>
+                        <div class="mdl-cell mdl-cell--3-col"></div>
+                    </div>
+                </div>
+            </main>
+        </div>
+          <!-- Edit Item Popup Dialog Box-->
+        <div class = "popupMessage" id = "editItemPopupMessageBox">
+            <div class = "pageBackground" onclick = "editItem('NaN','NaN')"></div>
+            <div class = "editItemContent">
+                <!--Close Popup Button-->
+                <button class = "mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect close-popup-button" onclick = "editItem()" id = "cancelEditItem"><i class="material-icons">close</i></button>
+                <!--Popup title-->
+                <h3 style = "text-align: center;margin-bottom: 0px;"><b>Edit Item</b></h3>
+                <!--Popup body-->
+                <div class="mdl-grid"> 
+                    <div class="mdl-cell mdl-cell--12-col">
+                        <!--Item name-->
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label has-placeholder" style = "text-align:center;">
+                            <input class = "mdl-textfield__input" type = "text" id = "newItemName">
+                            <label class="mdl-textfield__label" for="newItemName" id = "newItemLabel">Item Name</label>
+                        </div><br>
+                        <!--Item Content-->
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label has-placeholder" style = "text-align:center;">
+                            <textarea class="mdl-textfield__input" type="text" rows= "2" id="newItemContent" ></textarea>
+                            <label class="mdl-textfield__label" for="newItemContent" id = "newItemContentLabel">Item Content</label>
+                        </div><br>
+                        <!--Item Link-->
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label has-placeholder" style = "text-align:center;">
+                            <input class = "mdl-textfield__input" type = "text" id = "itemLink">
+                            <label class="mdl-textfield__label" for="itemLink" id = "itemLinkLabel">Any Necessary Links:</label>
+                        </div><br>
+                        <!--Item Due Date-->
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label has-placeholder" style = "text-align:center;">
+                            <input class = "mdl-textfield__input" type = "datetime-local" min = "new Date()" id = "newItemDueDate">
+                            <label class="mdl-textfield__label" for="newItemDueDate" id = "newItemDueDateLabel">Due Date</label>
+                        </div><br>
+                        <!--Item Duration-->
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label has-placeholder" style = "text-align:center;">
+                            <input class = "mdl-textfield__input html-duration-picker" id = "newItemDuration" data-duration-max="24:00" style = "text-align: left;" data-hide-seconds>
+                            <label class="mdl-textfield__label" for="newItemDuration" id = "newItemDurationLabel">How Long will it take to complete this task</label>
+                        </div><br>
+                        <!--Repeating Item radio buttons--> 
+                        <div class="repeating-item" style = "text-align:center;">
+                            <h7 id = "repeatingItemHeader">Is this a weekly repeating item?</h7>
+                            <input class = "repeating-item" name ="repeating-item" type = "radio" id ="repeatingItem" value = "Yes" checked>
+                            <label for="repeatingItem">Yes</label>
+                            <input class = "repeating-item" name ="repeating-item" type = "radio" id ="notRepeatingItem" value = "No">
+                            <label for="notRepeatingItem">No</label>
+                        </div><br><br>
+                        <div style = "text-align: center;">
+                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" id="editItemBtn" style = "border-radius:5%; text-transform: none; font-weight: bold;">Edit Item</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Link to javascript files-->
+        <script src = "shared.js"></script> 
+        <script src = "specificList.js"></script>    
+        <script src="html-duration-picker.min.js"></script> 
+   </body>
+</html>

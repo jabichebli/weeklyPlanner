@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+   <head>
+        <!--Page Title-->
+        <title>This Weeks Planner</title>
+
+        <!-- Add MDL -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+        <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+
+        <!-- Link to CSS-->
+        <link rel="stylesheet" type="text/css" href="weeklyPlanner.css">
+        <link rel="stylesheet" type="text/css" href="shared.css">
+
+        <!-- Page Adjust's depending on Screen Size-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+   <body>
+        <!-- Header of the Page. Always shows a header, even in smaller screens. -->
+        <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+            <header class="mdl-layout__header" id = "boardHeader">
+                <div class="mdl-layout__header-row" style = "padding: 0 16px 0 16px;font-size: 18px;font-weight: bold;">
+                    <!-- Title -->
+                    <p><p id = "boardName" class="weeklyToDoList" onclick="this.contentEditable=true;this.className='inEdit';" onblur="this.contentEditable=false;this.className='';" contenteditable="false" style="font-size: 18px;font-weight: bold;margin-bottom: 0px;" onKeyPress="listNameEntered(event, this)"></p>&nbsp;|&nbsp;Weekly Plan</p>
+                    <!-- Add spacer, to align navigation to the right -->
+                    <div class="mdl-layout-spacer"></div>
+                    <!--Navigation Dropdown ListButton-->
+                    <div class="dropdown">
+                        <button onclick="menuToggle()" class="" id = "menuButton">Menu</button>
+                        <div id="menuDropdown" class="menu-dropdown-content" style = "transform: translate(-90px, 0px);">
+                          <a id = "board" href = "weeklyToDoList.html" style = "font-size: 14px;">Board</a>
+                          <a id = "overdueWork" onclick="overduePage()" style = "font-size: 14px;">Overdue Work</a>
+                          <a id = "todaysWork" onclick = "todayPage()" style = "font-size: 14px;">Today's Work</a>
+                          <a id = "reset" style = "font-size: 14px;">Reset</a>
+
+                        </div>
+                      </div>
+                </div>
+            </header>
+            <!-- Body of the To Do List-->
+            <main class="mdl-layout__content" id = "pageContent">
+                <div class="page-content">
+                    <div class="mdl-grid">
+                        <div class="mdl-cell mdl-cell--3-col">
+                            <!--List Options Panel-->
+                            <!-- Save Week Button-->
+                            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-cell--12-col weekly-planner-buttons" style = "background: #C30303;" onclick="resetWeeklyPlanner()">Reset</button>
+                            <div class = "w3-panel mdl-shadow--2dp mdl-grid mdl-cell--12-col board-panel" style = "background-color: #383838; border-radius: 4px; margin-top: 0px; width: auto; height: auto; position: relative;" id = "toDoListItems"></div>
+                        </div>
+                        <div class="mdl-cell mdl-cell--9-col">
+                            <div class="mdl-grid" id = "thisWeeksSection">
+                                <!--This Weeks Sections-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+
+        <!--Link to javascript files-->
+        <script src = "shared.js"></script> 
+        <script src = "weeklyPlanner.js"></script>    
+   </body>
+</html>

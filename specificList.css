@@ -1,0 +1,110 @@
+.overdueItem {
+    background-color:white;  
+    width: -webkit-fill-available; 
+    border-radius: 6px; 
+    padding: 15px;
+    margin-bottom: 8px;
+    display: inline-block;
+}
+
+/*The item name*/
+h5 {
+    font-weight:bold; 
+}
+
+/*The item content*/
+h6 {
+  color: #747474;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+h6:hover {
+  overflow: visible;
+  white-space: pre-wrap;
+}
+
+/*The links*/
+a:link {
+  text-decoration: none;
+}
+  
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+  
+ a:active {
+  text-decoration: underline;
+}
+
+.item-buttons {
+  position: relative; 
+  top: -10px;
+  right: -7px;
+  display: none;
+  float: right;
+}
+
+.overdueItem:hover .item-buttons{
+    display: block;
+}
+
+
+/*Edit Item Popup*/
+
+/*The following properties make the background gray and fit to the center of the screen*/
+.pageBackground{
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000000;
+  opacity: 0.4;
+  z-index: 3;
+  display: none; 
+}
+/*The following properties are what make the actual popup message*/
+.editItemContent {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%) scale(0);
+  background: #ffffff;
+  width: 375px;
+  height: auto;
+  z-index: 4;
+  text-align: left;
+  padding:20px;
+  box-sizing: border-box;
+}
+
+/*Close button properties*/
+.close-popup-button {
+  /*These properties determine the location of the close button*/
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  cursor: pointer;
+  /*These properties determine the aesthetic of the close button*/
+  background: #ffffff;
+  box-shadow: none;
+}
+
+/*Hovering over the close button properties*/
+.close-popup-button:hover{
+  background:#E9E9E9;
+}
+
+/*The following property is necessary to get a gray background*/
+.popupMessage.active .pageBackground {
+  display: block;
+}
+/*The following properties deal with the animation of the pop-up message */
+.popupMessage.active .editItemContent {
+  transition: all 400ms ease-in-out;
+  transform: translate(-50%,-50%);
+}
