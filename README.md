@@ -3,9 +3,11 @@
 Created by **Jason Abi Chebli**  
 © 2025 Jason Abi Chebli. All rights reserved.
 
+<div style="text-align: justify;">
 This web application is designed to help individuals plan their week more effectively and manage their time efficiently. The app provides an intuitive interface that allows users to organize their tasks, set deadlines, and visualize their schedules in a way that encourages productivity and time management. By combining multiple functionalities such as task creation, weekly planning, overdue task tracking, and real-time updates, this app ensures that users stay on top of their to-dos.
 
 Originally, I developed this app to replace my paper-based task organization system. After receiving frequent questions about my productivity, I decided to build this web app to make the process accessible to others.
+</div>
 
 ## Demo
 
