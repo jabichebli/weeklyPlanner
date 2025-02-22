@@ -1,45 +1,64 @@
-# Starbucks Coffee Analysis
+# Organisation Web App
 
 Created by **Jason Abi Chebli**  
 © 2025 Jason Abi Chebli. All rights reserved.
 
-<div style="text-align: justify;"> This analysis explores Starbucks’ hot coffee drinks, focusing on key factors such as caffeine content, calorie counts, and the healthiness of different drink combinations. The goal was to understand how different elements, such as drink size, milk type, and whipped cream, impact the nutritional content of these beverages. Through linear regression models and various data visualizations, I identified which combinations provide the best balance between caffeine and calorie content, and which ones are healthier overall. This analysis aims to help consumers make more informed choices when ordering their Starbucks coffee. </div>
+<div style="text-align: justify;">
+This web application is designed to help individuals plan their week more effectively and manage their time efficiently. The app provides an intuitive interface that allows users to organize their tasks, set deadlines, and visualize their schedules in a way that encourages productivity and time management. By combining multiple functionalities such as task creation, weekly planning, overdue task tracking, and real-time updates, this app ensures that users stay on top of their to-dos.
+
+Originally, I developed this app to replace my paper-based task organization system. After receiving frequent questions about my productivity, I decided to build this web app to make the process accessible to others.
+</div>
 
 ## Demo
-To view the analysis I did, [here](https://jabichebli.github.io/starbucksAnalysis/Jason_Abi-Chebli_31444059_A2.html)
 
-## Data 
-The Starbucks dataset used in this analysis came from [Tidy Tuesday](https://github.com/rfordatascience/tidytuesday/blob/main/data/2021/2021-12-21/readme.md).
+### Home Page
+In the Home Page, you can:
+- Create Lists for better organization.
+- Add tasks to those lists (including descriptions, links, dates, and required durations).
+- Customize the appearance by changing the app's color.
+- Receive alerts for overdue tasks.
+- Navigate to other tabs for further functionalities.
 
-## Analysis Types
-<div style="text-align: justify;"> 
-This analysis includes several types of data exploration:
+[Visit the Home Page Demo](https://jabichebli.github.io/weeklyPlanner/weeklyToDoList.html)
 
-1. **Caffeine vs. Calorie Analysis:** I examined which Starbucks hot coffee drink offers the highest caffeine content while maintaining the lowest calorie count. The top-performing drinks were identified based on their caffeine-to-calorie ratio.
+### Weekly Planner Page
+In this page, you can:
+- Drag and drop items to specific days of the upcoming week for easy planning.
+- Reset your plan to start fresh.
 
-2. **Healthiness Analysis:** I explored how the size, milk type, and presence of whipped cream affect the overall healthiness of the drinks. Linear regression models were used to quantify the impact of these parameters on calorie content, helping to determine which drink combinations are the healthiest.
+[Visit the Weekly Planner Page Demo](https://jabichebli.github.io/weeklyPlanner/weeklyPlanner.html)
 
-3. **Regression Modeling:** I employed linear regression models to predict calorie content based on size, milk type, and whipped cream. These models helped to understand how each factor influences calorie content.
-</div>
+### Overdue Work Page
+This page will display:
+- A list of all tasks that are past their due date.
 
-## Specific Data Analysis Techniques
-<div style="text-align: justify;"> 
-In this analysis, various technical data analysis techniques and visualizations were employed to understand the relationships between Starbucks drink parameters and their nutritional content. Below is a list of the specific techniques and charts used:
+[Visit the Overdue Work Page Demo](https://jabichebli.github.io/weeklyPlanner/sectionItems.html)
 
-- **Bubble Chart**
-- **Q-Q Plot (Quantile-Quantile Plot)**
-- **Pairwise Plot (using `ggpairs()` function)**
-- **Linear Regression Models**
-- **Residual Plot**
-- **Heatmap**
-- **Density Plot**
-- **Bar Chart**
-</div>
+### Today's Work Page
+Here, you'll find:
+- A list of tasks due today.
+- Options to modify tasks, check them off, and keep track of progress.
+
+[Visit the Today's Work Page Demo](https://jabichebli.github.io/weeklyPlanner/sectionItems.html)
+
+## Accessing Pages in the Web App
+
+You can easily navigate to any of the above pages within the web app. Once logged in, use the navigation tabs at the top of the screen to switch between the **Home**, **Weekly Planner**, **Overdue Work**, and **Today's Work** pages.
+
+## UI/UX Design
+
+The design was created using **LucidCharts**. An example of the UI/UX design in LucidCharts can be found [here](https://jabichebli.github.io/weeklyPlanner/LucidChart_Home_Page.pdf).
+
+## Data Storage
+
+To ensure user privacy, all data is stored **locally** on the user's device.
 
 ## Feedback
 
-If you have any feedback, suggestions, or questions about the data analysis, feel free to [contact me](https://jabichebli.github.io/jabichebli/contact.html). Your input is valuable and will help improve the analysis.
+If you have any feedback, suggestions, or questions about the app, feel free to [contact me](https://jabichebli.github.io/jabichebli/contact.html). Your input is valuable and will help improve the app’s functionality and user experience.
 
 ## Downloading the Web App
 
-You can download this analysis and see the code behind it by [visiting the GitHub Repository.](https://github.com/jabichebli/starbucksAnalysis)
+You can download this web app by cloning the GitHub repository and running the **WeeklyToDoList** page.
+
+[Visit the GitHub Repository](https://github.com/jabichebli/weeklyPlanner.git)
