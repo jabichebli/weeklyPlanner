@@ -51,7 +51,7 @@ To ensure user privacy, all data is stored **locally** on the user's device.
 
 ## Feedback
 
-If you have any feedback, suggestions, or questions about the app, feel free to contact me at [your.email@example.com]. Your input is valuable and will help improve the app’s functionality and user experience.
+If you have any feedback, suggestions, or questions about the app, feel free to [contact me](https://jabichebli.github.io/jabichebli/contact.html). Your input is valuable and will help improve the app’s functionality and user experience.
 
 ## Downloading Web App
 
